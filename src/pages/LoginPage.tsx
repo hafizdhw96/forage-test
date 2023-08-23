@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -12,6 +13,8 @@ const LoginPage: React.FC = () => {
     if (username === "user" && password === "password") {
       localStorage.setItem("isLoggedIn", "true");
       navigate("/");
+    } else {
+      setErrorMessage("Invalid username or password");
     }
   };
 
@@ -43,6 +46,7 @@ const LoginPage: React.FC = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        {!!errorMessage && <p className="text-primary">{errorMessage}</p>}
         <button
           className="w-full bg-primary py-2 rounded-md text-light mt-6"
           onClick={handleLogin}
