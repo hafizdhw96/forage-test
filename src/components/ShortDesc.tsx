@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-
 interface ShortDescProps {
   id?: number;
   title: string;
@@ -11,9 +10,11 @@ const key = "PokemonFavorite";
 
 const ShortDesc: React.FC<ShortDescProps> = ({ title, id, description }) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  
 
-  const toggleFavorite = () => {
+  const toggleFavorite = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
     if (!isFavorite) {
       localStorage.setItem(`${key}${id}`, "true");
@@ -38,7 +39,10 @@ const ShortDesc: React.FC<ShortDescProps> = ({ title, id, description }) => {
         </div>
 
         {/* Right Side - Favorite Button */}
-        <button className={`ml-4 p-2 rounded-full`} onClick={toggleFavorite}>
+        <button
+          className={`ml-4 p-2 rounded-full`}
+          onClick={(e) => toggleFavorite(e)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`h-6 w-6 text-light ${
