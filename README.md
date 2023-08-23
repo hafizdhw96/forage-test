@@ -3,7 +3,7 @@
 - `npm run dev`
 
 # Demo App
-[Demo](https://forage-test-pokemon.web.app/http:// "Demo")
+[Demo](https://forage-test-pokemon.web.app/ "Demo")
 
 #### Login credential
 **Username : "user"**
