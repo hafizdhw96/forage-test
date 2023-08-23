@@ -5,9 +5,10 @@
 # Demo App
 [Demo](https://forage-test-pokemon.web.app/http:// "Demo")
 
-#### Login Info
-**u : user**
-**p : password**
+#### Login credential
+**Username : "user"**
+
+**Password : "password"**
 
 
 # React + TypeScript + Vite
